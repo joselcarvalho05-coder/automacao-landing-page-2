@@ -180,26 +180,31 @@ body {
   .sol-left .sol-cta{margin-top:auto;padding-top:24px}
   @media(max-width:980px){.sol-left .sol-cta{margin-top:24px;padding-top:0}}
   .sol-list{display:flex;flex-direction:column;gap:8px}
-  .sol-item{display:flex;gap:16px;padding:20px 22px;border:1px solid rgba(255,255,255,.08);border-radius:12px;cursor:pointer;transition:.25s;background:rgba(10,10,10,.6);align-items:flex-start}
+  .sol-item{display:flex;gap:16px;padding:18px 22px;border:1px solid rgba(255,255,255,.08);border-radius:12px;cursor:pointer;transition:.25s;background:rgba(10,10,10,.6);align-items:center}
   .sol-item:hover{border-color:rgba(137,217,232,.20);background:rgba(10,10,10,.85)}
   .sol-item.active{border-color:rgba(137,217,232,.50);background:rgba(0,49,82,.30);box-shadow:inset 0 0 0 1px rgba(137,217,232,.15)}
   .sol-item .ic{width:38px;height:38px;border-radius:9px;background:rgba(137,217,232,.10);border:1px solid rgba(137,217,232,.25);display:flex;align-items:center;justify-content:center;color:#89d9e8;flex-shrink:0;transition:.25s}
   .sol-item.active .ic{background:#89d9e8;color:#000;border-color:#89d9e8;box-shadow:0 0 16px rgba(137,217,232,.4)}
-  .sol-item h4{font-family:var(--font-body);font-weight:600;font-size:15.5px;margin:0 0 4px}
+  .sol-item h4{font-family:var(--font-body);font-weight:600;font-size:15.5px;margin:0}
   .sol-item p{font-size:13.5px;color:#7a9aaa;line-height:1.5;margin:0}
   .sol-item .arrow{margin-left:auto;color:rgba(137,217,232,.0);transition:.25s;align-self:center}
   .sol-item.active .arrow{color:#89d9e8}
 
-  .sol-display{position:relative;border-radius:32px;background:#050505;overflow:hidden;min-height:480px;padding:40px 36px;display:flex;flex-direction:column;transform:perspective(1000px) rotateX(0) rotateY(0) translateY(0);transform-style:preserve-3d;transition:transform .5s cubic-bezier(0.16,1,0.3,1),box-shadow .5s cubic-bezier(0.16,1,0.3,1);box-shadow:0 -6px 48px 4px rgba(135,217,229,.14),0 0 8px 0 rgba(0,0,0,.4);will-change:transform}
-  .sol-display::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 80%,rgba(255,255,255,.05) 100%);pointer-events:none;z-index:5;border-radius:inherit}
-  .sol-display::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.18;mix-blend-mode:overlay;pointer-events:none;z-index:2;border-radius:inherit}
-  .sol-glow-a{position:absolute;bottom:0;left:0;right:0;height:75%;background:radial-gradient(ellipse at bottom right,rgba(135,217,229,1) -30%,rgba(1,49,78,0) 65%),radial-gradient(ellipse at bottom left,rgba(208,253,254,.9) -30%,rgba(1,49,78,0) 65%);filter:blur(25px);z-index:1;opacity:.95;pointer-events:none;transition:opacity .5s ease-out}
-  .sol-glow-b{position:absolute;bottom:0;left:0;right:0;height:75%;background:radial-gradient(circle at bottom center,rgba(1,49,78,1) -30%,rgba(135,217,229,0) 55%);filter:blur(30px);z-index:1;opacity:.9;transform:translateY(10%);pointer-events:none;transition:opacity .5s ease-out}
+  .sol-display{position:relative;border-radius:32px;background-color:#01182A;overflow:hidden;min-height:480px;padding:40px 36px;display:flex;flex-direction:column;transform:perspective(1000px) rotateX(0) rotateY(0) translateY(0);transform-style:preserve-3d;transition:transform .5s cubic-bezier(0.16,1,0.3,1),box-shadow .5s cubic-bezier(0.16,1,0.3,1);box-shadow:0 -6px 60px 5px rgba(1,49,78,.30),0 0 36px 10px rgba(135,217,229,.07),0 0 8px 0 rgba(0,0,0,.45);will-change:transform}
+  .sol-l1{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,#000000 0%,#000000 70%);pointer-events:none}
+  .sol-l2{position:absolute;inset:0;z-index:10;opacity:.3;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+  .sol-l3{position:absolute;inset:0;z-index:11;opacity:.1;mix-blend-mode:soft-light;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='smudge'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01' numOctaves='3' seed='5' stitchTiles='stitch'/%3E%3CfeGaussianBlur stdDeviation='10'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23smudge)'/%3E%3C/svg%3E")}
+  .sol-glow-a{position:absolute;bottom:0;left:0;right:0;height:66.67%;z-index:20;filter:blur(40px);background:radial-gradient(ellipse 100% 80% at 50% 100%,rgba(1,49,78,.85) 0%,rgba(1,49,78,0) 70%),radial-gradient(ellipse at bottom right,rgba(135,217,229,.3) -10%,rgba(1,49,78,0) 60%),radial-gradient(ellipse at bottom left,rgba(208,253,254,.2) -10%,rgba(1,49,78,0) 60%);opacity:.9;pointer-events:none;transition:opacity .5s ease-out}
+  .sol-glow-b{position:absolute;bottom:0;left:0;right:0;height:66.67%;z-index:21;filter:blur(45px);transform:translateY(10%);background:radial-gradient(circle at bottom center,rgba(1,49,78,.95) -20%,rgba(1,49,78,0) 60%);opacity:.85;pointer-events:none;transition:opacity .5s ease-out}
   .sol-display:hover .sol-glow-a{opacity:1}
-  .sol-display:hover .sol-glow-b{opacity:1}
-  .sol-border-bottom{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.7) 50%,rgba(255,255,255,.05) 100%);box-shadow:0 0 15px 4px rgba(135,217,229,.9),0 0 30px 8px rgba(208,253,254,.6),0 0 45px 12px rgba(1,49,78,.8);z-index:6;transition:box-shadow .5s ease-out;opacity:1}
-  .sol-display:hover .sol-border-bottom{box-shadow:0 0 20px 6px rgba(135,217,229,1),0 0 40px 10px rgba(208,253,254,.8),0 0 60px 15px rgba(1,49,78,1)}
-  .sol-content{position:relative;z-index:10;display:flex;flex-direction:column;height:100%;width:100%}
+  .sol-display:hover .sol-glow-b{opacity:.95}
+  .sol-border-bottom{position:absolute;bottom:0;left:0;right:0;height:2px;z-index:25;background:linear-gradient(90deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.7) 50%,rgba(255,255,255,.05) 100%);box-shadow:0 0 15px 3px rgba(135,217,229,.4),0 0 25px 5px rgba(1,49,78,.7),0 0 35px 7px rgba(208,253,254,.2);transition:box-shadow .5s ease-out}
+  .sol-display:hover .sol-border-bottom{box-shadow:0 0 20px 4px rgba(135,217,229,.5),0 0 30px 6px rgba(1,49,78,.85),0 0 40px 8px rgba(208,253,254,.3)}
+  .sol-corner-l,.sol-corner-r{position:absolute;bottom:0;width:1px;height:25%;z-index:25;border-radius:9999px;background:linear-gradient(to top,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 80%);box-shadow:0 0 15px 3px rgba(1,49,78,.7);pointer-events:none}
+  .sol-corner-l{left:0}
+  .sol-corner-r{right:0}
+  .sol-l8{position:absolute;inset:0;z-index:35;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 80%,rgba(255,255,255,.05) 100%);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:.5}
+  .sol-content{position:relative;z-index:40;display:flex;flex-direction:column;height:100%;width:100%}
   .sol-icon-circle{width:52px;height:52px;border-radius:50%;background:linear-gradient(225deg,#171c2c 0%,#121624 100%);display:flex;align-items:center;justify-content:center;margin-bottom:28px;position:relative;overflow:hidden;color:#fff;box-shadow:0 6px 12px -2px rgba(0,0,0,.25),0 3px 6px -1px rgba(0,0,0,.15),inset 1px 1px 3px rgba(255,255,255,.12),inset -2px -2px 4px rgba(0,0,0,.5);transition:transform .4s ease-out,box-shadow .4s ease-out}
   .sol-icon-circle::before{content:"";position:absolute;top:0;left:0;width:66%;height:66%;background:radial-gradient(circle at top left,rgba(255,255,255,.5),transparent 80%);opacity:.4;filter:blur(10px);pointer-events:none}
   .sol-icon-circle::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:50%;background:linear-gradient(to top,rgba(0,0,0,.4),transparent);opacity:.5;pointer-events:none}
@@ -464,21 +469,26 @@ body {
           <p class="section-lead" style="margin-left:0">Sem templates genéricos. Sem soluções de prateleira. Tudo desenhado a partir da operação real do cliente.</p>
         </div>
         <div class="sol-list" id="solList">
-          <div class="sol-item active" data-i="0"><div class="ic"><i data-lucide="zap" style="width:18px;height:18px"></i></div><div style="flex:1"><h4>Automação de processos</h4><p>Fluxos que rodam 24h, sem intervenção manual.</p></div><span class="arrow"><i data-lucide="arrow-right" style="width:16px;height:16px"></i></span></div>
-          <div class="sol-item" data-i="1"><div class="ic"><i data-lucide="brain" style="width:18px;height:18px"></i></div><div style="flex:1"><h4>Agentes de IA</h4><p>Atendimento, triagem, análise — autônomos e personalizados.</p></div><span class="arrow"><i data-lucide="arrow-right" style="width:16px;height:16px"></i></span></div>
-          <div class="sol-item" data-i="2"><div class="ic"><i data-lucide="plug" style="width:18px;height:18px"></i></div><div style="flex:1"><h4>Integração de sistemas</h4><p>ERP, CRM, planilhas, APIs — tudo conversando entre si.</p></div><span class="arrow"><i data-lucide="arrow-right" style="width:16px;height:16px"></i></span></div>
+          <div class="sol-item active" data-i="0"><div class="ic"><i data-lucide="zap" style="width:18px;height:18px"></i></div><div style="flex:1"><h4>Automação de processos</h4></div><span class="arrow"><i data-lucide="arrow-right" style="width:16px;height:16px"></i></span></div>
+          <div class="sol-item" data-i="1"><div class="ic"><i data-lucide="brain" style="width:18px;height:18px"></i></div><div style="flex:1"><h4>Automações com IA</h4></div><span class="arrow"><i data-lucide="arrow-right" style="width:16px;height:16px"></i></span></div>
+          <div class="sol-item" data-i="2"><div class="ic"><i data-lucide="plug" style="width:18px;height:18px"></i></div><div style="flex:1"><h4>Integração de sistemas</h4></div><span class="arrow"><i data-lucide="arrow-right" style="width:16px;height:16px"></i></span></div>
         </div>
         <div class="sol-cta reveal"><button class="nav-cta" onclick="scrollToForm()" style="padding:14px 28px;font-size:14px;border-radius:10px">Solicite um diagnóstico <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button></div>
       </div>
       <div class="sol-display" id="solDisplay">
+        <div class="sol-l1"></div>
+        <div class="sol-l2"></div>
+        <div class="sol-l3"></div>
         <div class="sol-glow-a"></div>
         <div class="sol-glow-b"></div>
         <div class="sol-border-bottom"></div>
+        <div class="sol-corner-l"></div>
+        <div class="sol-corner-r"></div>
+        <div class="sol-l8"></div>
         <div class="sol-content">
           <div class="sol-icon-circle" id="sol-icon"><i data-lucide="zap" style="width:22px;height:22px"></i></div>
-          <div class="label" id="sol-label">Automação de processos</div>
-          <h3 class="display-title" id="sol-title">Fluxos que rodam 24h, sem intervenção manual.</h3>
-          <p class="display-desc" id="sol-desc">Mapeamos cada passo da sua operação e construímos um fluxo automático que dispara na hora certa, com os dados certos, no sistema certo.</p>
+          <h3 class="display-title" id="sol-title">Automações que rodam 24h, sem intervenção manual.</h3>
+          <p class="display-desc" id="sol-desc">Automatizamos processos repetitivos da sua operação para que você não precise mais alocar um colaborador para algo que pode ser feito por uma IA.</p>
           <div class="sol-features" id="sol-features">
             <div class="sol-feature"><span class="check"><i data-lucide="check" style="width:13px;height:13px"></i></span>Roda em segundo plano, 24/7</div>
             <div class="sol-feature"><span class="check"><i data-lucide="check" style="width:13px;height:13px"></i></span>Logs e monitoramento por padrão</div>
@@ -504,7 +514,7 @@ body {
         <p class="col-sub">O que parece "rotina" na verdade custa caro</p>
         <ul>
           <li><span class="ic"><i data-lucide="x" style="width:18px;height:18px"></i></span>Equipe gasta horas copiando dados entre sistemas</li>
-          <li><span class="ic"><i data-lucide="x" style="width:18px;height:18px"></i></span>Erros se acumulam — e aparecem tarde</li>
+          <li><span class="ic"><i data-lucide="x" style="width:18px;height:18px"></i></span>Erros se acumulam, e aparecem tarde demais</li>
           <li><span class="ic"><i data-lucide="x" style="width:18px;height:18px"></i></span>Crescer significa contratar mais gente</li>
           <li><span class="ic"><i data-lucide="x" style="width:18px;height:18px"></i></span>Relatórios que demoram dias para sair</li>
           <li><span class="ic"><i data-lucide="x" style="width:18px;height:18px"></i></span>Conhecimento preso na cabeça das pessoas</li>
@@ -516,9 +526,9 @@ body {
         <ul>
           <li><span class="ic"><i data-lucide="check" style="width:18px;height:18px"></i></span>Fluxos rodam sozinhos, 24h por dia, sem erro humano</li>
           <li><span class="ic"><i data-lucide="check" style="width:18px;height:18px"></i></span>Dados consistentes entre todos os sistemas</li>
-          <li><span class="ic"><i data-lucide="check" style="width:18px;height:18px"></i></span>Capacidade dobra sem dobrar headcount</li>
+          <li><span class="ic"><i data-lucide="check" style="width:18px;height:18px"></i></span>Capacidade dobra sem dobrar o time</li>
           <li><span class="ic"><i data-lucide="check" style="width:18px;height:18px"></i></span>Relatórios prontos no momento que precisar</li>
-          <li><span class="ic"><i data-lucide="check" style="width:18px;height:18px"></i></span>Processos documentados em código — não em pessoas</li>
+          <li><span class="ic"><i data-lucide="check" style="width:18px;height:18px"></i></span>Redução de riscos de processos trabalhistas</li>
         </ul>
       </div>
     </div>
@@ -534,7 +544,7 @@ body {
       <h2 class="section-title">As dúvidas que <span class="accent">todo gestor</span> tem.</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this)">O que acontece exatamente no diagnóstico gratuito? <span class="plus">+</span></button><div class="faq-a"><p>Uma reunião de 30 minutos, online. A gente entende seus processos, identifica o que pode ser automatizado e te mostra uma estimativa de impacto — em horas e em custo. No final, você recebe um documento com as oportunidades. Sem proposta automática, sem follow-up insistente.</p></div></div>
+      <div class="faq-item open"><button class="faq-q" onclick="toggleFaq(this)">O que acontece exatamente no diagnóstico gratuito? <span class="plus">+</span></button><div class="faq-a"><p>Uma reunião de 1 hora, online. A gente entende seus processos, identifica o que pode ser automatizado e te mostra uma estimativa de impacto — em horas e em custo. No final, você recebe um documento com as oportunidades. Sem proposta automática, sem follow-up insistente.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Minha empresa é pequena demais para automação? <span class="plus">+</span></button><div class="faq-a"><p>Não. Empresas pequenas costumam ter o ROI mais rápido — porque uma única pessoa fazendo tarefa repetitiva já justifica o investimento. O diagnóstico mostra se faz sentido para você agora ou se vale esperar.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Quanto tempo até ver resultado? <span class="plus">+</span></button><div class="faq-a"><p>A primeira automação fica em produção em 4 a 8 semanas, dependendo da complexidade. O retorno em horas economizadas começa na primeira semana de operação.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Vocês usam IA ou automação tradicional? <span class="plus">+</span></button><div class="faq-a"><p>O que o seu problema pedir. Muita coisa não precisa de IA — um fluxo bem desenhado resolve. Quando IA agrega (atendimento, triagem, análise), aplicamos. A regra é: a ferramenta serve ao problema, nunca o contrário.</p></div></div>
@@ -642,9 +652,9 @@ renderInlineIcons();
 
   // Solutions interactive
   const SOLS = [
-    { icon:'zap', label:'Automação de processos', title:'Fluxos que rodam 24h, sem intervenção manual.', desc:'Mapeamos cada passo da sua operação e construímos um fluxo automático que dispara na hora certa, com os dados certos, no sistema certo.', features:['Roda em segundo plano, 24/7','Logs e monitoramento por padrão','Integra com seus sistemas existentes','Manutenção e ajustes incluídos'] },
-    { icon:'brain', label:'Agentes de IA', title:'Inteligência que decide e executa sozinha.', desc:'Agentes treinados na sua operação que entendem contexto, tomam decisões e disparam ações — sem precisar de supervisão a cada passo.', features:['Treinado nos seus dados e processos','Decisões auditáveis e reversíveis','Atendimento, triagem, análise — sob medida','Integra com WhatsApp, email, CRM'] },
-    { icon:'plug', label:'Integração de sistemas', title:'ERP, CRM, planilhas — tudo conversando.', desc:'Conectamos os sistemas que você já usa em um único ecossistema, com dados consistentes e atualizados em tempo real.', features:['APIs, webhooks e bancos de dados','Sincronização em tempo real','Funciona com sistemas legados','Padrão de qualidade enterprise'] },
+    { icon:'zap', title:'Automações que rodam 24h, sem intervenção manual.', desc:'Automatizamos processos repetitivos da sua operação para que você não precise mais alocar um colaborador para algo que pode ser feito por uma IA.', features:['Roda em segundo plano, 24/7','Logs e monitoramento por padrão','Integra com seus sistemas existentes','Manutenção e ajustes incluídos'] },
+    { icon:'brain', title:'Inteligência que decide e executa sozinha.', desc:'Agentes treinados para a sua operação que entendem contexto, tomam decisões e executam ações, sem precisar de supervisão a cada passo.', features:['Treinado nos seus dados e processos','Agentes para qualquer setor da sua empresa','100% personalizados para o seu negócio','Integra com WhatsApp, email, CRM'] },
+    { icon:'plug', title:'ERP, CRM, planilhas — todos os sistemas conversando.', desc:'Conectamos os sistemas que você já usa em um único ecossistema, com dados consistentes e atualizados em tempo real.', features:['APIs, webhooks e bancos de dados','Sincronização em tempo real','100% personalizado para você','Padrão de qualidade enterprise'] },
   ];
   document.querySelectorAll('.sol-item').forEach(item => {
     item.onclick = () => {
@@ -653,7 +663,6 @@ renderInlineIcons();
       const i = +item.dataset.i;
       const s = SOLS[i];
       document.getElementById('sol-icon').innerHTML = `<i data-lucide="${s.icon}" style="width:22px;height:22px"></i>`;
-      document.getElementById('sol-label').textContent = s.label;
       document.getElementById('sol-title').textContent = s.title;
       document.getElementById('sol-desc').textContent = s.desc;
       const fs = document.getElementById('sol-features');
