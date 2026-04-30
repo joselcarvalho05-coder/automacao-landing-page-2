@@ -337,6 +337,22 @@ fbq('track', 'PageView');
   gtag('config', 'AW-18049514747');
 </script>
 
+<!-- Google Ads Conversion Tracking - Lead Submit -->
+<script>
+function gtag_report_conversion_lead_submit(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18049514747/Ss3SCPKcs6UcEPv51p5D',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <!-- Axen tracking helpers (pré-definidos antes do JS da página) -->
 <script>
   window.AXEN_ORIGEM = 'automacao';
@@ -810,6 +826,9 @@ renderInlineIcons();
       email: payload.email,
       whatsapp: payload.whatsapp
     });
+    if (typeof gtag_report_conversion_lead_submit === 'function') {
+      gtag_report_conversion_lead_submit();
+    }
 
     btnEnviar.disabled = true;
     btnEnviar.innerHTML = 'Enviando...';
