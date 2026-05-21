@@ -835,19 +835,36 @@ renderInlineIcons();
     btnEnviar.disabled = true;
     btnEnviar.innerHTML = 'Enviando...';
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
+        mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller.signal
       });
 
-      if (!response.ok) throw new Error('Erro ao enviar');
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        const bodyText = await response.text().catch(() => '');
+        throw new Error('HTTP ' + response.status + ' ' + response.statusText + ' | body: ' + bodyText.slice(0, 500));
+      }
 
       window.location.href = '/obrigado.html';
 
     } catch (error) {
-      console.error('Erro:', error);
+      clearTimeout(timeoutId);
+      console.error('[lead-form] Falha ao enviar lead', {
+        url: WEBHOOK_URL,
+        origem: ORIGEM,
+        errorName: error && error.name,
+        errorMessage: error && error.message,
+        aborted: error && error.name === 'AbortError'
+      });
       alert('Ops! Algo deu errado. Tente novamente ou entre em contato direto pelo WhatsApp.');
       btnEnviar.disabled = false;
       btnEnviar.innerHTML = btnTextoOriginal;
