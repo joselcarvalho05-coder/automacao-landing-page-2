@@ -854,6 +854,11 @@ renderInlineIcons();
         throw new Error('HTTP ' + response.status + ' ' + response.statusText + ' | body: ' + bodyText.slice(0, 500));
       }
 
+      try {
+        localStorage.setItem('axen_lead_nome', payload.nome);
+        localStorage.setItem('axen_lead_at', String(Date.now()));
+      } catch (e) { /* localStorage blocked — skip personalization */ }
+
       window.location.href = '/obrigado.html';
 
     } catch (error) {

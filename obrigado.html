@@ -1,35 +1,200 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Obrigado! | Axen Partners</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background: #000;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      text-align: center;
-      padding: 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Obrigado pelo contato — Axen Partners</title>
+<meta property="og:title" content="Obrigado pelo contato — Axen Partners">
+<meta property="og:description" content="Entraremos em contato pelo WhatsApp em até 5 minutos.">
+<link rel="icon" type="image/png" href="/favicon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="/favicon-light.png" media="(prefers-color-scheme: light)">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 32px clamp(20px, 5vw, 56px);
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    animation: fadeIn 0.5s var(--ease-out) 0s forwards;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    color: var(--fg);
+    text-decoration: none;
+    transition: opacity var(--dur-base) var(--ease-out);
+  }
+  .logo:hover { opacity: 0.7; }
+  .logo svg {
+    height: 22px;
+    width: auto;
+    display: block;
+  }
+  @media (max-width: 540px) {
+    .logo svg { height: 18px; }
+  }
+
+  .back-link {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--fg-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color var(--dur-base) var(--ease-out);
+  }
+  .back-link:hover { color: var(--accent); }
+  .back-link svg { transition: transform var(--dur-base) var(--ease-out); }
+  .back-link:hover svg { transform: translateX(-3px); }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 48px 0;
+  }
+
+  .check {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent-tint);
+    border: 1px solid var(--border-cyan);
+    display: grid;
+    place-items: center;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeIn 0.5s var(--ease-out) 0.1s forwards;
+  }
+  .check svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: draw 0.6s var(--ease-out) 0.5s forwards;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--fg);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: rise 0.6s var(--ease-out) 0.2s forwards;
+  }
+  h1 span { color: var(--fg-faint); display: block; }
+
+  .lead {
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.6;
+    color: var(--fg-muted);
+    max-width: 520px;
+    opacity: 0;
+    animation: rise 0.6s var(--ease-out) 0.3s forwards;
+  }
+  .lead strong { color: var(--fg); font-weight: 600; }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-delay: 0s !important;
     }
-    h1 { color: #87D9E5; font-size: 2.5rem; margin-bottom: 1rem; }
-    p { font-size: 1.2rem; max-width: 600px; line-height: 1.6; }
-    a { color: #87D9E5; }
-  </style>
+    .check svg { stroke-dashoffset: 0; }
+  }
+</style>
 </head>
 <body>
-  <div>
-    <h1>Recebemos seu pedido! ✅</h1>
-    <p>
-      Nosso time vai entrar em contato pelo WhatsApp em até <strong>5 minutos</strong>.
-      <br><br>
-      Enquanto isso, você pode <a href="/">voltar pro site</a>.
-    </p>
+  <div class="page">
+    <header>
+      <a href="/" class="logo" aria-label="AXEN — voltar à home">
+        <svg viewBox="199 486 682 108" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <g fill="currentColor">
+            <path d="M302.96,491.67l-103.55,101.55h25.68l88.14-86.44v86.44h19.81v-106.25h-18.58c-4.3,0-8.43,1.69-11.5,4.7Z"/>
+            <polygon points="860.77 486.97 860.77 569.15 780.82 486.97 761.01 486.97 761.01 593.21 780.82 593.21 780.82 509.41 860.77 593.21 880.58 593.21 880.58 486.97 860.77 486.97"/>
+            <rect x="588.24" y="486.97" width="112.03" height="14.55"/>
+            <polygon points="588.24 593.21 700.27 593.21 700.27 578.66 608.05 578.66 608.05 547.37 700.27 547.37 700.27 532.81 588.24 532.81 588.24 593.21"/>
+            <polygon points="467.64 520.47 480.44 533.18 527.56 486.97 502.32 486.97 467.64 520.47"/>
+            <polygon points="419.21 486.97 393.79 486.97 502.32 593.21 527.56 593.21 419.21 486.97"/>
+            <polygon points="393.79 593.21 419.21 593.21 453.69 559.91 440.93 547.14 393.79 593.21"/>
+          </g>
+        </svg>
+      </a>
+      <a href="/" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Voltar pro site
+      </a>
+    </header>
+
+    <main>
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
+      </div>
+      <h1>Obrigado pelo contato<span id="nome-display">.</span></h1>
+      <p class="lead">
+        Entraremos em contato pelo WhatsApp em até <strong>5 minutos</strong>.
+      </p>
+    </main>
   </div>
+
+  <script>
+    (function () {
+      try {
+        var nome = localStorage.getItem('axen_lead_nome');
+        if (nome) {
+          var first = String(nome).trim().split(/\s+/)[0];
+          if (first) {
+            first = first.charAt(0).toUpperCase() + first.slice(1).toLowerCase();
+            var el = document.getElementById('nome-display');
+            if (el) el.textContent = ', ' + first + '.';
+          }
+        }
+      } catch (e) { /* localStorage blocked — skip personalization */ }
+    })();
+  </script>
 </body>
 </html>
