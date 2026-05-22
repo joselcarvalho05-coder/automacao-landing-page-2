@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Pronto! Recebemos seu diagnóstico — Axen Partners</title>
-<meta property="og:title" content="Pronto! Recebemos seu diagnóstico — Axen Partners">
-<meta property="og:description" content="Em até 5 minutos, alguém do nosso time abre conversa pelo WhatsApp.">
+<title>Obrigado pelo contato — Axen Partners</title>
+<meta property="og:title" content="Obrigado pelo contato — Axen Partners">
+<meta property="og:description" content="Entraremos em contato pelo WhatsApp em até 5 minutos.">
 <link rel="icon" type="image/png" href="/favicon-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="/favicon-light.png" media="(prefers-color-scheme: light)">
 <link rel="preconnect" href="https://api.fontshare.com">
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap">
 <link rel="stylesheet" href="./colors_and_type.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html, body { height: 100%; overflow-x: hidden; }
+  html, body { height: 100%; }
 
   body {
     background: var(--bg);
@@ -23,60 +23,27 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
   }
 
-  /* Background atmosphere — radial cyan + deep navy, very subtle */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background:
-      radial-gradient(900px circle at 82% -10%, rgba(137, 217, 232, 0.13), transparent 55%),
-      radial-gradient(1100px circle at 10% 110%, rgba(0, 49, 82, 0.45), transparent 60%);
-  }
-
-  /* Faint grid lines, almost invisible — texture without noise */
-  body::after {
-    content: '';
-    position: fixed; inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8), transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8), transparent 75%);
-  }
-
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 48px);
+  .page {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    padding: 32px clamp(20px, 5vw, 56px);
   }
 
-  /* ========================================================== HEADER */
   header {
-    padding: 28px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--border);
     opacity: 0;
-    animation: fadeIn 0.6s var(--ease-out) 0s forwards;
+    animation: fadeIn 0.5s var(--ease-out) 0s forwards;
   }
 
   .logo {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.22em;
     color: var(--fg);
     text-decoration: none;
@@ -89,288 +56,92 @@
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 4px;
-    position: relative;
+    gap: 8px;
     transition: color var(--dur-base) var(--ease-out);
-    letter-spacing: 0.02em;
-  }
-  .back-link::after {
-    content: '';
-    position: absolute;
-    left: 4px; right: 4px; bottom: 4px;
-    height: 1px;
-    background: currentColor;
-    transform: scaleX(0);
-    transform-origin: right center;
-    transition: transform var(--dur-base) var(--ease-out);
   }
   .back-link:hover { color: var(--accent); }
-  .back-link:hover::after { transform: scaleX(1); transform-origin: left center; }
   .back-link svg { transition: transform var(--dur-base) var(--ease-out); }
-  .back-link:hover svg { transform: translateX(-4px); }
+  .back-link:hover svg { transform: translateX(-3px); }
 
-  /* ========================================================== MAIN */
   main {
     flex: 1;
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: clamp(40px, 6vw, 96px);
-    align-items: center;
-    padding: clamp(56px, 10vh, 112px) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 48px 0;
   }
 
-  @media (max-width: 900px) {
-    main {
-      grid-template-columns: 1fr;
-      gap: 56px;
-      padding: 48px 0 64px;
-      align-items: stretch;
-    }
-  }
-
-  /* ---------- LEFT */
-  .left { display: flex; flex-direction: column; gap: clamp(20px, 2.5vw, 32px); }
-
-  .status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 6px 16px 6px 6px;
-    border: 1px solid var(--border-cyan);
-    background: var(--accent-tint);
-    border-radius: 999px;
-    align-self: flex-start;
-    opacity: 0;
-    transform: translateY(16px);
-    animation: rise 0.7s var(--ease-out) 0.15s forwards;
-  }
-  .status-badge .check {
-    width: 22px; height: 22px;
+  .check {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: var(--accent);
-    box-shadow: var(--glow-cyan-sm);
-    display: grid; place-items: center;
-    flex-shrink: 0;
+    background: var(--accent-tint);
+    border: 1px solid var(--border-cyan);
+    display: grid;
+    place-items: center;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeIn 0.5s var(--ease-out) 0.1s forwards;
   }
-  .status-badge .check svg {
-    width: 12px; height: 12px;
-    stroke: var(--axen-black);
-    stroke-width: 3;
+  .check svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent);
+    stroke-width: 2.5;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-dasharray: 24;
     stroke-dashoffset: 24;
-    animation: draw 0.55s var(--ease-out) 0.7s forwards;
-  }
-  .status-badge span {
-    font-family: var(--font-body);
-    font-size: 11px;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 500;
+    animation: draw 0.6s var(--ease-out) 0.5s forwards;
   }
 
-  h1.title {
+  h1 {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(36px, 5.2vw, 64px);
-    line-height: 1.04;
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 1.1;
     letter-spacing: -0.015em;
     color: var(--fg);
+    margin-bottom: 20px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: rise 0.75s var(--ease-out) 0.25s forwards;
+    animation: rise 0.6s var(--ease-out) 0.2s forwards;
   }
-  h1.title .accent {
-    color: var(--accent);
-    background: linear-gradient(90deg, #89d9e8 0%, #d1fcff 50%, #89d9e8 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 6s linear infinite;
-  }
+  h1 span { color: var(--fg-faint); display: block; }
 
   .lead {
     font-family: var(--font-body);
     font-size: clamp(15px, 1.2vw, 17px);
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--fg-muted);
-    max-width: 460px;
+    max-width: 520px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: rise 0.75s var(--ease-out) 0.35s forwards;
+    animation: rise 0.6s var(--ease-out) 0.3s forwards;
   }
   .lead strong { color: var(--fg); font-weight: 600; }
 
-  /* ---------- RIGHT — Timeline */
-  .right {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: rise 0.75s var(--ease-out) 0.45s forwards;
-  }
-  .timeline-label {
-    font-family: var(--font-body);
-    font-size: 11px;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--fg-faint);
-    display: block;
-    margin-bottom: 18px;
-  }
-
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.005));
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-
-  .step {
-    display: grid;
-    grid-template-columns: 64px 1fr auto;
-    align-items: center;
-    gap: 20px;
-    padding: 22px 24px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    transition: background var(--dur-base) var(--ease-out);
-  }
-  .step:last-child { border-bottom: none; }
-
-  .step .num {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 1;
-    color: var(--fg-faint);
-    transition: color var(--dur-base) var(--ease-out), text-shadow var(--dur-base) var(--ease-out);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .step .body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-  .step .name {
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--fg);
-    letter-spacing: -0.005em;
-  }
-  .step .desc {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--fg-subtle);
-  }
-
-  .step .badge {
-    font-family: var(--font-body);
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 5px 11px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    color: var(--fg-faint);
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  /* States */
-  .step.done .num { color: var(--accent); text-shadow: 0 0 16px rgba(137,217,232,0.5); }
-  .step.done .badge {
-    color: var(--accent);
-    border-color: var(--border-cyan);
-    background: var(--accent-tint);
-  }
-  .step.done::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 2px;
-    background: var(--accent);
-    box-shadow: var(--glow-cyan-sm);
-  }
-
-  .step.active .num { color: var(--fg); }
-  .step.active .badge {
-    color: var(--fg);
-    border-color: var(--border-strong);
-    background: rgba(255,255,255,0.03);
-  }
-  .step.active .badge::before {
-    content: '';
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-right: 8px;
-    box-shadow: 0 0 0 0 rgba(137, 217, 232, 0.6);
-    animation: pulse 1.8s ease-in-out infinite;
-  }
-
-  @media (max-width: 540px) {
-    .step { grid-template-columns: 48px 1fr; gap: 16px; padding: 18px 18px; }
-    .step .num { font-size: 24px; }
-    .step .badge { grid-column: 2; justify-self: start; margin-top: 4px; }
-  }
-
-  /* ========================================================== FOOTER */
-  footer {
-    padding: 22px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--border);
-    font-family: var(--font-body);
-    font-size: 11px;
-    color: var(--fg-faint);
-    letter-spacing: 0.04em;
-    opacity: 0;
-    animation: fadeIn 0.6s var(--ease-out) 0.7s forwards;
-  }
-  footer .right-meta { color: var(--fg-subtle); }
-  @media (max-width: 540px) {
-    footer { flex-direction: column; gap: 6px; text-align: center; padding-bottom: 28px; }
-  }
-
-  /* ========================================================== ANIMATIONS */
   @keyframes fadeIn { to { opacity: 1; } }
-  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   @keyframes draw { to { stroke-dashoffset: 0; } }
-  @keyframes shimmer {
-    0%   { background-position: 200% center; }
-    100% { background-position: -200% center; }
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(137, 217, 232, 0.6); }
-    50%      { box-shadow: 0 0 0 8px rgba(137, 217, 232, 0); }
-  }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.001ms !important;
       animation-delay: 0s !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
     }
-    .status-badge .check svg { stroke-dashoffset: 0; }
-    h1.title .accent { background: none; -webkit-text-fill-color: var(--accent); color: var(--accent); }
+    .check svg { stroke-dashoffset: 0; }
   }
 </style>
 </head>
 <body>
-  <div class="container">
+  <div class="page">
     <header>
       <a href="/" class="logo">AXEN</a>
       <a href="/" class="back-link">
@@ -380,100 +151,29 @@
     </header>
 
     <main>
-      <section class="left">
-        <div class="status-badge" role="status" aria-live="polite">
-          <span class="check" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
-          </span>
-          <span>Recebido</span>
-        </div>
-
-        <h1 class="title">Pronto<span id="nome-display"></span>.<br>Seu diagnóstico <span class="accent">está na fila</span>.</h1>
-
-        <p class="lead">
-          Em até <strong>5 minutos</strong>, alguém do nosso time abre conversa pelo WhatsApp com você. Sem proposta automática, sem follow-up insistente — só um diagnóstico real da sua operação.
-        </p>
-      </section>
-
-      <section class="right" aria-labelledby="timeline-label">
-        <span class="timeline-label" id="timeline-label">O que acontece agora</span>
-        <ol class="timeline">
-          <li class="step done">
-            <div class="num" aria-hidden="true">01</div>
-            <div class="body">
-              <div class="name">Solicitação recebida</div>
-              <div class="desc" id="step1-desc">Agora mesmo</div>
-            </div>
-            <div class="badge">Feito</div>
-          </li>
-          <li class="step active">
-            <div class="num" aria-hidden="true">02</div>
-            <div class="body">
-              <div class="name">Análise inicial</div>
-              <div class="desc">Nosso time revisa o que você enviou e prepara o primeiro contato.</div>
-            </div>
-            <div class="badge">Em andamento</div>
-          </li>
-          <li class="step">
-            <div class="num" aria-hidden="true">03</div>
-            <div class="body">
-              <div class="name">Reunião de diagnóstico</div>
-              <div class="desc">1 hora, online. No final, um documento com as oportunidades reais.</div>
-            </div>
-            <div class="badge">A agendar</div>
-          </li>
-        </ol>
-      </section>
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
+      </div>
+      <h1>Obrigado pelo contato<span id="nome-display">.</span></h1>
+      <p class="lead">
+        Entraremos em contato pelo WhatsApp em até <strong>5 minutos</strong>.
+      </p>
     </main>
-
-    <footer>
-      <div>© Axen Partners</div>
-      <div class="right-meta" id="footer-timestamp">Solicitação registrada</div>
-    </footer>
   </div>
 
   <script>
     (function () {
-      var pad = function (n) { return String(n).padStart(2, '0'); };
-
-      var firstName = null;
-      var submittedAt = null;
-
       try {
         var nome = localStorage.getItem('axen_lead_nome');
         if (nome) {
           var first = String(nome).trim().split(/\s+/)[0];
           if (first) {
-            firstName = first.charAt(0).toUpperCase() + first.slice(1).toLowerCase();
+            first = first.charAt(0).toUpperCase() + first.slice(1).toLowerCase();
+            var el = document.getElementById('nome-display');
+            if (el) el.textContent = ', ' + first + '.';
           }
         }
-        var rawAt = localStorage.getItem('axen_lead_at');
-        if (rawAt) {
-          var n = parseInt(rawAt, 10);
-          if (!isNaN(n) && n > 0) submittedAt = new Date(n);
-        }
       } catch (e) { /* localStorage blocked — skip personalization */ }
-
-      if (firstName) {
-        var nomeEl = document.getElementById('nome-display');
-        if (nomeEl) nomeEl.textContent = ', ' + firstName;
-      }
-
-      var when = submittedAt || new Date();
-      var stamp = pad(when.getDate()) + '/' + pad(when.getMonth() + 1) + '/' + when.getFullYear()
-                + ' às ' + pad(when.getHours()) + ':' + pad(when.getMinutes());
-      var ft = document.getElementById('footer-timestamp');
-      if (ft) ft.textContent = 'Solicitação registrada · ' + stamp;
-
-      // Relative label for step 1
-      if (submittedAt) {
-        var diffMin = Math.floor((Date.now() - submittedAt.getTime()) / 60000);
-        var label = 'Agora mesmo';
-        if (diffMin >= 1 && diffMin < 60) label = 'Há ' + diffMin + ' min';
-        else if (diffMin >= 60) label = 'Há ' + Math.floor(diffMin / 60) + 'h';
-        var s1 = document.getElementById('step1-desc');
-        if (s1) s1.textContent = label;
-      }
     })();
   </script>
 </body>
