@@ -41,12 +41,20 @@
   }
 
   .logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 0.22em;
+    display: inline-flex;
+    align-items: center;
     color: var(--fg);
     text-decoration: none;
+    transition: opacity var(--dur-base) var(--ease-out);
+  }
+  .logo:hover { opacity: 0.7; }
+  .logo svg {
+    height: 22px;
+    width: auto;
+    display: block;
+  }
+  @media (max-width: 540px) {
+    .logo svg { height: 18px; }
   }
 
   .back-link {
@@ -143,7 +151,19 @@
 <body>
   <div class="page">
     <header>
-      <a href="/" class="logo">AXEN</a>
+      <a href="/" class="logo" aria-label="AXEN — voltar à home">
+        <svg viewBox="199 486 682 108" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <g fill="currentColor">
+            <path d="M302.96,491.67l-103.55,101.55h25.68l88.14-86.44v86.44h19.81v-106.25h-18.58c-4.3,0-8.43,1.69-11.5,4.7Z"/>
+            <polygon points="860.77 486.97 860.77 569.15 780.82 486.97 761.01 486.97 761.01 593.21 780.82 593.21 780.82 509.41 860.77 593.21 880.58 593.21 880.58 486.97 860.77 486.97"/>
+            <rect x="588.24" y="486.97" width="112.03" height="14.55"/>
+            <polygon points="588.24 593.21 700.27 593.21 700.27 578.66 608.05 578.66 608.05 547.37 700.27 547.37 700.27 532.81 588.24 532.81 588.24 593.21"/>
+            <polygon points="467.64 520.47 480.44 533.18 527.56 486.97 502.32 486.97 467.64 520.47"/>
+            <polygon points="419.21 486.97 393.79 486.97 502.32 593.21 527.56 593.21 419.21 486.97"/>
+            <polygon points="393.79 593.21 419.21 593.21 453.69 559.91 440.93 547.14 393.79 593.21"/>
+          </g>
+        </svg>
+      </a>
       <a href="/" class="back-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
         Voltar pro site
