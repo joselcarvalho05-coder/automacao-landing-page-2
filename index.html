@@ -822,16 +822,6 @@ renderInlineIcons();
       return;
     }
 
-    if (window.trackEvent) window.trackEvent(window.AXEN_EVENTS.submit, {
-      nome: payload.nome,
-      estabelecimento: payload.estabelecimento,
-      email: payload.email,
-      whatsapp: payload.whatsapp
-    });
-    if (typeof gtag_report_conversion_lead_submit === 'function') {
-      gtag_report_conversion_lead_submit();
-    }
-
     btnEnviar.disabled = true;
     btnEnviar.innerHTML = 'Enviando...';
 
@@ -852,6 +842,16 @@ renderInlineIcons();
       if (!response.ok) {
         const bodyText = await response.text().catch(() => '');
         throw new Error('HTTP ' + response.status + ' ' + response.statusText + ' | body: ' + bodyText.slice(0, 500));
+      }
+
+      if (window.trackEvent) window.trackEvent(window.AXEN_EVENTS.submit, {
+        nome: payload.nome,
+        estabelecimento: payload.estabelecimento,
+        email: payload.email,
+        whatsapp: payload.whatsapp
+      });
+      if (typeof gtag_report_conversion_lead_submit === 'function') {
+        gtag_report_conversion_lead_submit();
       }
 
       try {
